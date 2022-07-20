@@ -1,5 +1,5 @@
 <script lang="ts">
-import { reactive } from 'vue';
+import { reactive } from "vue";
 export default {
   props: {
     buttonLabel: {
@@ -17,7 +17,7 @@ export default {
       type: String,
     },
   },
-  emits: ['click'],
+  emits: ["click"],
   setup(props, { emit }) {
     props = reactive(props);
     return {
@@ -25,13 +25,15 @@ export default {
       disabled: props.isDisabled,
       classes: props.buttonClasses,
       onClick() {
-        emit('click');
-      }
+        emit("click");
+      },
     };
   },
 };
 </script>
 
 <template>
-  <button type="button" :class="classes" :disabled="disabled" @click="onClick">Primary</button>
+  <button type="button" :class="classes" :disabled="disabled" @click="onClick">
+    {{ buttonLabel }}
+  </button>
 </template>
