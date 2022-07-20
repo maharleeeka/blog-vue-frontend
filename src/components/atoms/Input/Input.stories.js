@@ -3,7 +3,7 @@ import TextInput from "./InputComponent.vue";
 export default {
   title: "atom/TextInput",
   component: TextInput,
-  args: {}
+  args: {},
 };
 
 const Template = (args) => ({
@@ -19,5 +19,4 @@ Input.args = {
   inputLabel: "Email Address",
   helperText: "We will not share your email address to anyone.",
   placeholder: "Add your email here...",
-  inputType: "email",
 };

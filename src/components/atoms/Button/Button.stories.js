@@ -5,6 +5,8 @@ export default {
   component: MyButton,
   args: {
     onClick: () => alert("button clicked!"),
+    class: "btn btn-primary",
+    disabled: true
   }
 };
 
@@ -19,6 +21,4 @@ const Template = (args) => ({
 export const Primary = Template.bind({});
 Primary.args = {
   buttonLabel: "Button",
-  isDisabled: false,
-  buttonClasses: "btn btn-primary",
 };
