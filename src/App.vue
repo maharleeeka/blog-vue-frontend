@@ -1,6 +1,11 @@
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
+import { useAuthStore } from "./stores/auth.store";
+const authStore = useAuthStore();
+const { isAuthenticated } = storeToRefs(authStore);
+const { clear } = authStore;
 </script>
 
 <template>
@@ -14,11 +19,14 @@ import HelloWorld from "./components/HelloWorld.vue";
     />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Blog" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+      <nav v-if="isAuthenticated === false">
+        <RouterLink to="/">Register</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
+      </nav>
+      <nav v-if="isAuthenticated === true">
+        <RouterLink to="/" v-on:click="clear">Logout</RouterLink>
       </nav>
     </div>
   </header>
